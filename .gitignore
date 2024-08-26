@@ -1,0 +1,8 @@
+.venv
+results/
+results/**/*.safetensors
+results/**/*.pt
+final_model/*.safetensors
+animaldata/images/
+animal_classification.ipynb
+__pycache__

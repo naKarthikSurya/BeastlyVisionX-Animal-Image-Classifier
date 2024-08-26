@@ -1,0 +1,15 @@
+pylint 
+black
+numpy
+opencv-python
+scikit-learn
+requests
+torch
+torchvision
+transformers
+tqdm
+fastapi 
+uvicorn 
+pillow 
+safetensors
+python-multipart

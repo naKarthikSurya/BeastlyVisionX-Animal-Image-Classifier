@@ -1,1 +1,1 @@
-# Animal-Image-Classification
+# Animal-Image-Classification-Using-HuggingFace-Transformers
