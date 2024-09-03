@@ -3,6 +3,6 @@ results/
 results/**/*.safetensors
 results/**/*.pt
 final_model/*.safetensors
-animaldata/images/
+animaldata/
 animal_classification.ipynb
 __pycache__

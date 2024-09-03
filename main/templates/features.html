@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Features - BeastlyVisionX</title>
+    <meta name="description" content="Features Page" />
+    <meta name="author" content="BeastlyVisionX" />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap"
+    />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/main/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-LtrjvnR4/JhytGfzhm3EL6q/rP6y2biM6DESxBJ9zj/nlqUFcNqv91lgEKx8xIi1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">BeastlyVisionX</h2>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/model">Model</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Main content container -->
+    <div class="container">
+      <div class="content">
+        <div class="description">
+          <h2>How the Model Works</h2>
+          <p>
+            Our animal image classification system leverages advanced machine learning techniques to accurately identify and describe various animal species. Here’s a step-by-step overview of how the model operates:
+          </p>
+          <ul>
+            <li>
+              <strong>Data Collection:</strong> The model is trained on a comprehensive dataset containing images of numerous animal species. Each image is tagged with specific attributes, including the animal's common name and scientific classification.
+            </li>
+            <li>
+              <strong>Preprocessing:</strong> Before training, images are preprocessed to ensure consistency and quality. This involves resizing images to a uniform dimension, normalizing pixel values, and augmenting data to improve model robustness.
+            </li>
+            <li>
+              <strong>Model Architecture:</strong> The core of the system is built on a pre-trained transformer model from HuggingFace. Transformers are state-of-the-art models known for their efficiency in handling image data and providing high accuracy in classification tasks. Our model has been fine-tuned on the specific animal dataset to enhance its performance.
+            </li>
+            <li>
+              <strong>Feature Extraction:</strong> During the prediction phase, the model extracts features from input images using deep convolutional layers. These features are then compared to learned patterns to classify the image into one of the predefined animal categories.
+            </li>
+            <li>
+              <strong>Prediction:</strong> Once an image is processed, the model predicts the most likely animal class. It also provides additional information about the animal, such as habitat, diet, and conservation status, which is fetched from a detailed attribute dataset.
+            </li>
+            <li>
+              <strong>User Interaction:</strong> Users can upload images of animals through the web interface. The model processes the uploaded image and displays the classification result along with a brief description of the animal. This feature allows users to quickly learn about different species and their characteristics.
+            </li>
+          </ul>
+        </div>
+        <div class="description">
+          <h2>What the Model Does</h2>
+          <ul>
+            <li>
+              <strong>Classifies Animal Images:</strong> Accurately identifies various animal species based on visual characteristics in the uploaded images.
+            </li>
+            <li>
+              <strong>Provides Detailed Descriptions:</strong> For each classified animal, the model offers a detailed description, including attributes like height, weight, lifespan, diet, and habitat.
+            </li>
+            <li>
+              <strong>Enhances Learning:</strong> Users can explore and learn about different animal species through interactive features, making it a valuable educational tool.
+            </li>
+            <li>
+              <strong>Adapts to New Data:</strong> The system is designed to be adaptable, allowing for future updates with new animal classes and improved models as more data becomes available.
+            </li>
+          </ul>
+        </div>
+        <div class="description">
+          <h2>Technical Specifications</h2>
+          <p>
+            The model uses a transformer-based architecture, trained on a robust dataset containing thousands of labeled animal images. It leverages advanced machine learning techniques to achieve high levels of accuracy and efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Animal Image Classifier. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

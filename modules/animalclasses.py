@@ -1,10 +1,10 @@
 """
-animal_classification.py
+animal_classes.py
 This Module contains the List of the Animal Classes
 """
 # Define animal classes and their respective indices for Animal Classification
 animal_classes = [
-    "Acinonyx Jubatus",
+    "acinonyx-jubatus",
     "aethia-cristatella",
     "african_elephant",
     "agalychnis-callidryas",

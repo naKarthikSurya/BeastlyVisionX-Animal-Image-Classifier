@@ -12,7 +12,7 @@ import logging
 from transformers import ViTImageProcessor, ViTForImageClassification
 from PIL import Image
 import torch
-from modules.animalclasses import animal_classes
+from modules.animalnames import animal_names
 
 # Initialize the model and tokenizer
 MODEL_PATH = os.path.abspath(
@@ -53,7 +53,7 @@ def predict(image_bytes: bytes) -> str:
         # Extract prediction
         logits = outputs.logits
         predicted_class_id = logits.argmax(-1).item()
-        return animal_classes[predicted_class_id]
+        return animal_names[predicted_class_id]
     except KeyError as e:
         logging.error("KeyError in accessing class index: %s", e)
         return "Error during Accessing class index"

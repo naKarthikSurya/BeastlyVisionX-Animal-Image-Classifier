@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Animal Image Classification using Deep Learning">
+    <meta name="author" content="BeastlyVisionX">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Model - BeastlyVisionX</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap">
+    <link rel="stylesheet" href="/main/static/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-LtrjvnR4/JhytGfzhm3EL6q/rP6y2biM6DESxBJ9zj/nlqUFcNqv91lgEKx8xIi1" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">BeastlyVisionX</h2>
+            </div>
+            
+            <div class="menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/model">Model</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Main content container -->
+    <div class="container">
+        <div class="content">
+            <div class="description">
+                <h2>BeastlyVisionX : Animal Image Classification</h2>
+                <p>This model classifies images of various animals. Upload an image to see the model's prediction. It uses a deep learning algorithm to identify the type of animal in the picture.</p>
+            </div>
+            <div class="input-form">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <label for="fileInput" class="custom-file-upload">Choose an image</label>
+                    <input type="file" id="fileInput" name="file" accept="image/*" required>
+                    <button type="submit">Classify Image</button>
+                </form>
+                <div class="result" id="result"></div>
+                <div class="wikipedia-description" id="wikipediaDescription"></div>
+                <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+                <p id="uploadStatus">No file uploaded</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const uploadStatus = document.getElementById('uploadStatus');
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                uploadStatus.textContent = 'File Uploaded: ' + fileInput.files[0].name;
+            } else {
+                uploadStatus.textContent = 'No file uploaded';
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const resultDiv = document.getElementById('result');
+            const wikipediaDescriptionDiv = document.getElementById('wikipediaDescription');
+            const imagePreview = document.getElementById('imagePreview');
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error During Prediction');
+                }
+
+                const result = await response.json();
+                resultDiv.textContent = `Prediction: ${result.prediction}`;
+                wikipediaDescriptionDiv.innerHTML = `<p><strong>Description:</strong> ${result.wikipedia_description}</p>`;
+                imagePreview.src = URL.createObjectURL(file);
+                imagePreview.style.display = 'block';
+
+            } catch (error) {
+                resultDiv.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+  </body>
+</html>
