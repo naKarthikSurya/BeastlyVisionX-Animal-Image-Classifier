@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <title>Home - BeastlyVisionX</title>
+    <meta
+      name="description"
+      content="Animal Image Classification using Deep Learning"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="BeastlyVisionX" />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap"
+    />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/main/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-LtrjvnR4/JhytGfzhm3EL6q/rP6y2biM6DESxBJ9zj/nlqUFcNqv91lgEKx8xIi1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">BeastlyVisionX</h2>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/model">Model</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Main content container -->
+    <div class="container">
+      <div class="content">
+        <div class="description">
+          <h2>Discover the Power of AI</h2>
+          <p>
+            Our state-of-the-art animal image classifier is capable of
+            recognizing and classifying various different animal species with
+            incredible accuracy. Explore the site to learn more about how it
+            works and the technology behind it.
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Highlights</h2>
+          <ul>
+            <li>Accurate animal classification using deep learning.</li>
+            <li>Fast and efficient processing.</li>
+            <li>Easy integration into various applications.</li>
+          </ul>
+        </div>
+
+        <div class="cta">
+          <h2>Get Started</h2>
+          <p>
+            Explore the features of our model or learn more about our team and
+            mission.
+          </p>
+          <button type="submit" class="home_model_button">
+            <a href="/model" class="button">Model</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Animal Image Classifier. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const fileInput = document.getElementById("fileInput");
+          const resultDiv = document.getElementById("result");
+          const imagePreview = document.getElementById("imagePreview");
+
+          const file = fileInput.files[0];
+          const formData = new FormData();
+          formData.append("file", file);
+
+          try {
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+
+            if (!response.ok) {
+              throw new Error("Network response was not ok.");
+            }
+
+            const result = await response.json();
+            resultDiv.textContent = `Prediction: ${result.prediction}`;
+            imagePreview.src = URL.createObjectURL(file);
+            imagePreview.style.display = "block";
+          } catch (error) {
+            resultDiv.textContent = `Error: ${error.message}`;
+          }
+        });
+    </script>
+  </body>
+</html>
