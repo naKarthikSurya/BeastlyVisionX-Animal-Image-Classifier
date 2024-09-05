@@ -45,29 +45,29 @@
     <div class="container">
       <div class="content">
         <div class="description">
-          <h2>Discover the Power of AI</h2>
+          <h2>Welcome to BeastlyVisionX!</h2>
           <p>
-            Our state-of-the-art animal image classifier is capable of
-            recognizing and classifying various different animal species with
-            incredible accuracy. Explore the site to learn more about how it
-            works and the technology behind it.
+            Discover the power of advanced AI with BeastlyVisionX, your go-to tool for accurate and efficient animal image classification. Our cutting-edge model is designed to transform how you interact with and understand animal images.
           </p>
         </div>
-
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
         <div class="description">
-          <h2>Highlights</h2>
-          <ul>
-            <li>Accurate animal classification using deep learning.</li>
-            <li>Fast and efficient processing.</li>
-            <li>Easy integration into various applications.</li>
-          </ul>
-        </div>
-
-        <div class="cta">
-          <h2>Get Started</h2>
+          <h2>How BeastlyVisionX Works</h2>
           <p>
-            Explore the features of our model or learn more about our team and
-            mission.
+            Our model uses deep learning techniques to analyze and classify animal images. Simply upload an image, and BeastlyVisionX will process it, providing a detailed prediction and description. It's powered by a robust AI engine trained on diverse datasets to ensure high performance and accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
+        <div class="cta">
+          <h2>Get Started with BeastlyVisionX</h2>
+          <p>
+            Ready to see BeastlyVisionX in action? Upload an image, click 'Classify,' and see the detailed prediction and description instantly.
           </p>
           <button type="submit" class="home_model_button">
             <a href="/model" class="button">Model</a>
@@ -79,39 +79,5 @@
     <footer>
       <p>&copy; 2024 Animal Image Classifier. All rights reserved.</p>
     </footer>
-
-    <script>
-      document
-        .getElementById("uploadForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-
-          const fileInput = document.getElementById("fileInput");
-          const resultDiv = document.getElementById("result");
-          const imagePreview = document.getElementById("imagePreview");
-
-          const file = fileInput.files[0];
-          const formData = new FormData();
-          formData.append("file", file);
-
-          try {
-            const response = await fetch("/predict", {
-              method: "POST",
-              body: formData,
-            });
-
-            if (!response.ok) {
-              throw new Error("Network response was not ok.");
-            }
-
-            const result = await response.json();
-            resultDiv.textContent = `Prediction: ${result.prediction}`;
-            imagePreview.src = URL.createObjectURL(file);
-            imagePreview.style.display = "block";
-          } catch (error) {
-            resultDiv.textContent = `Error: ${error.message}`;
-          }
-        });
-    </script>
   </body>
 </html>

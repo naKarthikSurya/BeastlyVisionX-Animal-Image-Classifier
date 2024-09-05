@@ -5,7 +5,7 @@ body {
   padding: 0;
   background-color: #f4f4f4;
   color: #333;
-  background-image: url(background.jpg);
+  background-image: url(background.png);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,7 @@ body {
 
 .main {
   width: 100%;
-  background-color: rgba(8, 73, 40, 0.7);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(187, 187, 187, 0.116);
 }
 
 /* Navbar Styles */
@@ -25,7 +24,7 @@ body {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 15px 30px;
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +52,8 @@ body {
 .menu ul li a {
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 22px;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -68,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px;
+  padding: 10px;
 }
 
 .content {
@@ -94,16 +94,21 @@ body {
   }
 }
 
+.description {
+  text-align: justify;
+}
+
 .description h2 {
   color: #333;
   margin-bottom: 20px;
   font-size: 26px;
+  text-align: center;
 }
 
 .description p {
   color: #666;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 
 /* Custom File Input Styles */
@@ -151,6 +156,11 @@ body {
   transition: background-color 0.3s, transform 0.3s;
 }
 
+.input-form button:hover {
+  background-color: #ff0088;
+  transform: translateY(-2px);
+}
+
 .home_model_button {
   padding: 12px 25px;
   background-color: #333;
@@ -161,16 +171,12 @@ body {
   font-size: 18px;
   transition: background-color 0.3s, transform 0.3s;
 }
+
 .home_model_button a {
   color: #fff;
   cursor: pointer;
   font-size: 18px;
   text-decoration: none;
-}
-
-.input-form button:hover {
-  background-color: #ff0088;
-  transform: translateY(-2px);
 }
 
 /* Result and Image Preview */
@@ -185,4 +191,48 @@ body {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Spinner */
+.loading {
+  font-size: 18px;
+  color: #18bc9c;
+  margin: 10px 0;
+}
+
+/* Prediction History */
+.history {
+  margin-top: 30px;
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.history h3 {
+  font-size: 22px;
+  color: #0c0101;
+  margin-bottom: 15px;
+}
+
+.history ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.history ul li {
+  background-color: #494949d0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+/* Upload Status */
+#uploadStatus {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-top: 10px;
 }
