@@ -43,10 +43,20 @@
                     <input type="file" id="fileInput" name="file" accept="image/*" required>
                     <button type="submit">Classify Image</button>
                 </form>
+
+                <!-- Loading Spinner -->
+                <div class="loading" id="loading" style="display: none;">Loading...</div>
+
                 <div class="result" id="result"></div>
                 <div class="wikipedia-description" id="wikipediaDescription"></div>
                 <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
                 <p id="uploadStatus">No file uploaded</p>
+
+                <!-- Prediction History -->
+                <div class="history">
+                    <h3>Prediction History</h3>
+                    <ul id="historyList"></ul>
+                </div>
             </div>
         </div>
     </div>
@@ -54,6 +64,11 @@
     <script>
         const fileInput = document.getElementById('fileInput');
         const uploadStatus = document.getElementById('uploadStatus');
+        const loadingSpinner = document.getElementById('loading');
+        const resultDiv = document.getElementById('result');
+        const wikipediaDescriptionDiv = document.getElementById('wikipediaDescription');
+        const imagePreview = document.getElementById('imagePreview');
+        const historyList = document.getElementById('historyList');
 
         fileInput.addEventListener('change', function() {
             if (fileInput.files.length > 0) {
@@ -65,10 +80,7 @@
 
         document.getElementById('uploadForm').addEventListener('submit', async function (event) {
             event.preventDefault();
-
-            const resultDiv = document.getElementById('result');
-            const wikipediaDescriptionDiv = document.getElementById('wikipediaDescription');
-            const imagePreview = document.getElementById('imagePreview');
+            loadingSpinner.style.display = 'block';  // Show loading spinner
 
             const file = fileInput.files[0];
             const formData = new FormData();
@@ -90,8 +102,15 @@
                 imagePreview.src = URL.createObjectURL(file);
                 imagePreview.style.display = 'block';
 
+                // Append to Prediction History
+                const newItem = document.createElement('li');
+                newItem.textContent = `Prediction: ${result.prediction}`;
+                historyList.appendChild(newItem);
+
             } catch (error) {
                 resultDiv.textContent = `Error: ${error.message}`;
+            } finally {
+                loadingSpinner.style.display = 'none';  // Hide loading spinner
             }
         });
     </script>

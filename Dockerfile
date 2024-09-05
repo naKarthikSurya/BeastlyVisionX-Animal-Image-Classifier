@@ -17,7 +17,7 @@ COPY final_model/model.safetensors /app/final_model/model.safetensors
 COPY requirements.txt /app/
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --timeout=3000 -r requirements.txt
 
 # Expose port 8000 for FastAPI
 EXPOSE 8000

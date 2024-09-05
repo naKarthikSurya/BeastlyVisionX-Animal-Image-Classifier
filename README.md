@@ -9,7 +9,7 @@ BeastlyVisionX is a sophisticated AI-powered animal image classification system 
     - `animal_classification.py`
   - `animaldata/`
     - `Images/`
-      - `(Dataset of Various Classes)`
+      - `(Dataset of Various Animal Classes)`
   - `main/`
     - `__init__.py`
     - `main.py`
@@ -51,7 +51,7 @@ BeastlyVisionX is a sophisticated AI-powered animal image classification system 
 
     ```bash
     git clone https://github.com/naKarthikSurya/Animal-Image-Classification.git
-    cd 
+    cd Animal-Image-Classification
     ```
 
 2. **Create a virtual environment and activate it:**
