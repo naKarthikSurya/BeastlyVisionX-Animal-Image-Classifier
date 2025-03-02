@@ -29,6 +29,7 @@ BeastlyVisionX is a sophisticated AI-powered animal image classification system 
     - `preparedata.py`
   - `final_model/`
     - `model.safetensors`
+  
 From this Project Sturcture, I Have not Uploaded the Animaldata in the Github.Its your choice of data to collect and train the model with it.
 
 ## Features
